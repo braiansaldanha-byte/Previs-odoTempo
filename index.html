@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Previsão do Tempo</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <span>🌤️</span>
+                Previsão do Tempo
+            </h1>
+            <div class="controls">
+                <div class="search-box">
+                    <input type="text" id="cityInput" placeholder="Digite o nome da cidade..." />
+                    <button onclick="searchByCity()">Busca</button>
+                </div>
+                <button onclick="getLocationWeather()">📍 Localização</button>
+                <button class="theme-toggle" onclick="toggleTheme()">🌓 Trocar Tema</button>
+            </div>
+        </header>
+
+        <div id="errorMessage" class="error hidden"></div>
+        <div id="loading" class="loading hidden">Carregando dados...</div>
+
+        <div id="currentWeather" class="current-weather hidden"></div>
+
+        <!-- Map showing user/location marker -->
+        <div id="map" class="map hidden"></div>
+
+        <div id="forecastContainer" class="forecast-container hidden">
+            <h2>Previsão para os Próximos 5 Dias</h2>
+            <div id="forecastGrid" class="forecast-grid"></div>
+        </div>
+
+        <div id="chartsContainer" class="charts-container hidden">
+            <div class="chart-box">
+                <h2>Temperatura (°C)</h2>
+                <canvas id="tempChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h2>Umidade (%)</h2>
+                <canvas id="humidityChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+<script src="script.js"></script>
+
+</body>
+</html>
